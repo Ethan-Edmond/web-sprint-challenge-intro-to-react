@@ -6,6 +6,9 @@ import Character from "./components/Character";
 
 const AppContainer = styled.div`
   background-color: ${props => props.theme.color1};
+  margin: 0;
+  overflow: auto;
+  color: ${props => props.theme.color3};
 `;
 
 const App = () => {
