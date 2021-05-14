@@ -1,6 +1,8 @@
 // Write your Character component here
 import React from "react";
 import styled from "styled-components";
+import HomeWorld from "./HomeWorld";
+import Species from "./Species";
 
 const Container = styled.div`
   border: 2px solid white;
@@ -15,15 +17,10 @@ const CharacterText = styled.p`
   margin-left: 10px;
 `;
 
-const Films = styled.div`
-  margin-left: 10px;
-`;
-
-const Character = ({character, setChar}) => {
-  const {birth_year, eye_color, films, gender,
+const Character = ({char, setChar, loadHomeWorlds, loadSpecies}) => {
+  const {birth_year, eye_color, gender,
          hair_color, height, homeworld, mass,
-         name, skin_color, species, starships, vehicles} = character;
-
+         name, skin_color, species, starships, vehicles} = char;
 
   return(
     <Container>
@@ -34,10 +31,6 @@ const Character = ({character, setChar}) => {
       <CharacterText>
         Eye color: {eye_color}
       </CharacterText>
-      <Films>
-        Films:
-        {films.map(film => <CharacterText>{film}</CharacterText>)}
-      </Films>
       <CharacterText>
         Gender: {gender}
       </CharacterText>
@@ -47,15 +40,21 @@ const Character = ({character, setChar}) => {
       <CharacterText>
         Height: {height}
       </CharacterText>
-      HomeWorld: {/* {TODO} */}
+      {(typeof homeworld === "string") ? <button onClick={e => loadHomeWorlds(char, setChar)}>Load Homeworlds</button>: <HomeWorld homeworld={homeworld}/>}
       <CharacterText>
         Mass: {mass}
       </CharacterText>
       <CharacterText>
         Skin color: {skin_color}
       </CharacterText>
-        Species: {/* {TODO} */}
-        Starships: {/* {TODO} */}
+      {
+        species.length === 0 ?
+          <h3>No Species Data</h3> :
+        (species.some(specie => typeof specie === 'string') ?
+          <button onClick={e => loadSpecies(char, setChar)}>Load Species</button> :
+         <Species species={species}/>)
+      }
+      Starships: {/* {TODO} */}
         Vehicles: {/* {TODO} */}
     </Container>
   );
