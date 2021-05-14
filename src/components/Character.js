@@ -18,6 +18,7 @@ const CharacterText = styled.p`
 const Character = ({character}) => {
   const {birth_year, name} = character;
 
+  console.log(character);
   return(
     <Container>
       <CharacterHeader>{name}</CharacterHeader>
