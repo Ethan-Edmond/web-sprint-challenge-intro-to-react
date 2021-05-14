@@ -63,7 +63,7 @@ After finishing your required elements, you can push your work further. These go
 
 - [ ] Make the Character component more complex and break it into several subcomponents.
 - [ ] Use the endpoint `[GET] https://swapi.dev/api/films` (mocked in msw) to obtain movie information to render with the characters.
-- [ ] Create a helper function in separate module to remove unneeded information from the API data, before putting it in state.
+- [x] Create a helper function in separate module to remove unneeded information from the API data, before putting it in state.
 - [ ] Create transitions or animations with styled-components.
 - [ ] Use Promise.all to resolve an array of promises.
 

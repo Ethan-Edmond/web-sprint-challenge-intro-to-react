@@ -15,15 +15,28 @@ const CharacterText = styled.p`
   margin-left: 10px;
 `;
 
-const Character = ({character}) => {
-  const {birth_year, name} = character;
+const Character = ({character, setChar}) => {
+  const {birth_year, eye_color, films, gender,
+         hair_color, height, homeworld, mass,
+         name, skin_color, species, starships, vehicles} = character;
 
-  console.log(character);
+
   return(
     <Container>
       <CharacterHeader>{name}</CharacterHeader>
       <CharacterText>
-        BirthYear: {birth_year}
+        Birth year: {birth_year}
+        Eye color: {eye_color}
+        Films: {/* {TODO} */}
+        Gender: {gender}
+        Hair color: {hair_color}
+        Height: {height}
+        HomeWorld: {/* {TODO} */}
+        Mass: {mass}
+        Skin color: {skin_color}
+        Species: {/* {TODO} */}
+        Starships: {/* {TODO} */}
+        Vehicles: {/* {TODO} */}
       </CharacterText>
     </Container>
   );

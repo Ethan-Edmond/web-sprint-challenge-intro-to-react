@@ -24,20 +24,44 @@ const App = () => {
   // Fetch characters from the API in an effect hook. Remember, anytime you have a 
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
+
+  function pareChar({
+    birth_year, eye_color, films, gender, hair_color,
+    height, homeworld, mass, name, skin_color,
+    species, starships, vehicles }){
+    return {
+      birth_year, eye_color, films, gender, hair_color,
+      height, homeworld, mass, name, skin_color,
+      species, starships, vehicles };
+  }
+  function pareData(data) {
+    return data.map(char => {
+      return pareChar(char);
+    });
+  };
+
   useEffect(() => {
     axios.get("https://swapi.dev/api/people")
       .then(res => {
-        setChars(res.data);
+        setChars(pareData(res.data));
       })
       .catch(err => console.log("ERR:", err));
   }, []);
+
+  function makeCharSetter(index){
+    return (char) => {
+      let newChars = [...chars];
+      newChars.splice(index, 1, char);
+      setChars(newChars);
+    };
+  }
 
   return (
     <AppContainer>
       <AppHeader>Characters</AppHeader>
       {
         chars.map((char, index) => {
-          return <Character key={index} character={char}/>;
+          return <Character key={index} character={char} setChar={makeCharSetter(index)}/>;
         })
       }
     </AppContainer>
