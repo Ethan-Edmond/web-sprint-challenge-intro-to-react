@@ -11,6 +11,11 @@ const AppContainer = styled.div`
   color: ${props => props.theme.color3};
 `;
 
+const AppHeader = styled.h1`
+  text-align: center;
+  text-shadow: 1px 2px 2px ${props => props.theme.color2};
+`;
+
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
@@ -29,7 +34,7 @@ const App = () => {
 
   return (
     <AppContainer>
-      <h1 className="Header">Characters</h1>
+      <AppHeader>Characters</AppHeader>
       {
         chars.map((char, index) => {
           return <Character key={index} character={char}/>;

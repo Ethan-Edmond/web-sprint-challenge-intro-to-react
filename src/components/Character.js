@@ -2,16 +2,29 @@
 import React from "react";
 import styled from "styled-components";
 
+const Container = styled.div`
+  border: 2px solid white;
+  padding: 0px 10px;
+`;
+
+const CharacterHeader = styled.h3`
+
+`;
+
+const CharacterText = styled.p`
+  margin-left: 10px;
+`;
+
 const Character = ({character}) => {
   const {birth_year, name} = character;
 
   return(
-    <>
-      <h1>{name}</h1>
-      <p>
+    <Container>
+      <CharacterHeader>{name}</CharacterHeader>
+      <CharacterText>
         BirthYear: {birth_year}
-      </p>
-    </>
+      </CharacterText>
+    </Container>
   );
 };
 
