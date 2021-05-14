@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   border: 2px solid white;
-  padding: 0px 10px;
+  padding: 0px 10px 10px;
 `;
 
 const CharacterHeader = styled.h3`
@@ -12,6 +12,10 @@ const CharacterHeader = styled.h3`
 `;
 
 const CharacterText = styled.p`
+  margin-left: 10px;
+`;
+
+const Films = styled.div`
   margin-left: 10px;
 `;
 
@@ -26,18 +30,33 @@ const Character = ({character, setChar}) => {
       <CharacterHeader>{name}</CharacterHeader>
       <CharacterText>
         Birth year: {birth_year}
+      </CharacterText>
+      <CharacterText>
         Eye color: {eye_color}
-        Films: {/* {TODO} */}
+      </CharacterText>
+      <Films>
+        Films:
+        {films.map(film => <CharacterText>{film}</CharacterText>)}
+      </Films>
+      <CharacterText>
         Gender: {gender}
+      </CharacterText>
+      <CharacterText>
         Hair color: {hair_color}
+      </CharacterText>
+      <CharacterText>
         Height: {height}
-        HomeWorld: {/* {TODO} */}
+      </CharacterText>
+      HomeWorld: {/* {TODO} */}
+      <CharacterText>
         Mass: {mass}
+      </CharacterText>
+      <CharacterText>
         Skin color: {skin_color}
+      </CharacterText>
         Species: {/* {TODO} */}
         Starships: {/* {TODO} */}
         Vehicles: {/* {TODO} */}
-      </CharacterText>
     </Container>
   );
 };
