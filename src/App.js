@@ -83,6 +83,7 @@ const App = () => {
       .catch(err => console.log(err));
   };
 
+  // Not Done
   const loadSpecies = (char, settercb) => {
     Promise.all(char.species.map(specie => axios.get(specie)))
       .then(values => {
