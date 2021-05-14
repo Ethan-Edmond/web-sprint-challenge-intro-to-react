@@ -1,6 +1,12 @@
 import React, { useState, useEffect }from 'react';
 import './App.css';
 import axios from "axios";
+import styled from "styled-components";
+import Character from "./components/Character";
+
+const AppContainer = styled.div`
+  background-color: ${props => props.theme.color1};
+`;
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -19,9 +25,14 @@ const App = () => {
   }, []);
 
   return (
-    <div className="App">
+    <AppContainer>
       <h1 className="Header">Characters</h1>
-    </div>
+      {
+        chars.map((char, index) => {
+          return <Character key={index} character={char}/>;
+        })
+      }
+    </AppContainer>
   );
 };
 

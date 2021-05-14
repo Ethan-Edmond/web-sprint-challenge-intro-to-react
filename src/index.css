@@ -5,3 +5,9 @@ body {
   background-image: url('./images/sw-bg.jpg');
   background-size: cover;
 }
+
+/* Just some boilerplate css */
+* {
+    max-width: 100%;
+    box-sizing: border-box;
+}
